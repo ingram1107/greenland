@@ -7,32 +7,32 @@
 
 int main()
 {
-    // user-defined server's ip and port
-    /* Make sure both the client and server are having the same ip and port */
-    char *ip = "127.0.0.1";
-    int port = 3939;
+  // user-defined server's ip and port
+  /* Make sure both the client and server are having the same ip and port */
+  char* ip = "127.0.0.1";
+  int port = 3939;
 
-    int server_socket, client_socket;
-    struct sockaddr_in server_addr, client_addr;
-    socklen_t addr_size;
-    char buffer[1024];
+  int server_socket, client_socket;
+  struct sockaddr_in server_addr, client_addr;
+  socklen_t addr_size;
+  char buffer[1024];
 
-    // create the server side socket
-    server_socket = socket(AF_INET, SOCK_STREAM, 0);
-    if (server_socket < 0)
-    {
-        perror("[-] Socket error!");
-        exit(1);
-    }
+  // create the server side socket
+  server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
-    printf("[+] TCP server socket created. \n");
+  if (server_socket < 0) {
+    perror("[-] Socket error!");
+    exit(1);
+  }
 
-    // define the server address
-    memset(&server_addr, '\0', sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(port);
-    server_addr.sin_addr.s_addr = inet_addr(ip);
-    // inet_addr() convert numbers and dots (readable IP) notation into binary format
+  printf("[+] TCP server socket created. \n");
+
+  // define the server address
+  memset(&server_addr, '\0', sizeof(server_addr));
+  server_addr.sin_family = AF_INET;
+  server_addr.sin_port = htons(port);
+  server_addr.sin_addr.s_addr = inet_addr(ip);
+  // inet_addr() convert numbers and dots (readable IP) notation into binary format
 
   // bind the server socket to the ip and port
   int bind_status = bind(server_socket, (struct sockaddr*)&server_addr,
@@ -40,14 +40,15 @@ int main()
 
   if (bind_status < 0) {
     perror("[-] Bind error!");
-    exit(2);
+    exit(1);
   }
 
   printf("[+] Bind to the port number: %d\n", port);
 
-  // 5 connection request that can be queue by the system in server_socket
-  listen(server_socket, 5);
-  printf("Listening...\n");
+  if (bind_status < 0) {
+    perror("[-] Bind error!");
+    exit(2);
+  }
 
   // infinite loop inside the while(), which will not end the server
   while (1) {
