@@ -1,20 +1,24 @@
 #include "../lib/tree.h"
 #include "../lib/menuoption.h"
+#include "../lib/species.h"
 #include <check.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
 START_TEST(test_tree_create_dead)
 {
   struct Tree* t;
+  time_t current_time;
+  time(&current_time);
 
-  t = tree_create("foo", DEAD, 1);
+  t = tree_create("foo", DEAD, current_time);
 
   ck_assert_str_eq(tree_get_species(t), "foo");
   ck_assert(tree_get_status(t) == DEAD);
-  ck_assert(tree_get_days_alived(t) == (unsigned long) 0);
+  ck_assert(t->day_planted == NULL);
 
   tree_free(t);
 }
@@ -23,12 +27,14 @@ END_TEST
 START_TEST(test_tree_create_normal)
 {
   struct Tree* t;
+  time_t current_time;
+  time(&current_time);
 
-  t = tree_create("foo", PLANTED, 10);
+  t = tree_create("foo", PLANTED, current_time);
 
   ck_assert_str_eq(tree_get_species(t), "foo");
   ck_assert(tree_get_status(t) == PLANTED);
-  ck_assert(tree_get_days_alived(t) == (unsigned long) 10);
+  ck_assert(mktime(t->day_planted) == current_time);
 
   tree_free(t);
 }
@@ -48,6 +54,20 @@ START_TEST(test_trstate_is_valid)
 {
   ck_assert(trstat_is_valid(DEAD) == true);
   ck_assert(trstat_is_valid(-1) == false);
+}
+END_TEST
+
+START_TEST(test_species_is_valid)
+{
+  char* list_of_species[] = {
+    "Durio zibethinus",
+    "Musa acuminata",
+    "Acacia mangium",
+    "Tectona grandis",
+  };
+
+  ck_assert(species_is_valid("Acacia mangium", list_of_species) == true);
+  ck_assert(species_is_valid("Ingram ham", list_of_species) == false);
 }
 END_TEST
 
@@ -90,6 +110,7 @@ Suite* tree_suit(void)
   tcase_add_test(tc_core, test_tree_create_normal);
   tcase_add_test(tc_core, test_trstate_to_string);
   tcase_add_test(tc_core, test_trstate_is_valid);
+  tcase_add_test(tc_core, test_species_is_valid);
   suite_add_tcase(s, tc_core);
 
   return s;
