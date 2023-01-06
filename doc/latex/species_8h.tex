@@ -1,0 +1,54 @@
+\hypertarget{species_8h}{}\doxysection{lib/species.h File Reference}
+\label{species_8h}\index{lib/species.h@{lib/species.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{species_8h_ad221963e3cf337abb641d19fba896f0c}{species\+\_\+is\+\_\+valid}} (const char $\ast$sp, char $\ast$$\ast$sp\+\_\+arr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyDate}{Date}
+2022-\/11-\/30 21\+:27\+:33 PM +0800 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{species_8h_ad221963e3cf337abb641d19fba896f0c}\label{species_8h_ad221963e3cf337abb641d19fba896f0c}} 
+\index{species.h@{species.h}!species\_is\_valid@{species\_is\_valid}}
+\index{species\_is\_valid@{species\_is\_valid}!species.h@{species.h}}
+\doxysubsubsection{\texorpdfstring{species\_is\_valid()}{species\_is\_valid()}}
+{\footnotesize\ttfamily bool species\+\_\+is\+\_\+valid (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sp,  }\item[{char $\ast$$\ast$}]{sp\+\_\+arr }\end{DoxyParamCaption})}
+
+Check if the specified species is listed in an array stored the valied species
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp} & A species name to be checked \\
+\hline
+{\em sp\+\_\+arr} & A species array used to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if sp is in sp\+\_\+arr, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 4 of file species.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6   \textcolor{keywordflow}{while} (*sp\_arr != NULL) \{}
+\DoxyCodeLine{7     \textcolor{keywordflow}{if} (strcmp(sp, *sp\_arr) == 0) \{}
+\DoxyCodeLine{8       \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{9     \}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     sp\_arr++;}
+\DoxyCodeLine{12   \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}

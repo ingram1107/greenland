@@ -16,7 +16,9 @@ enum \mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Opt
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{menuoption_8h_a6f7571f6077ddc1c6fe33f14de4bbf22}{moption\+\_\+handle}} (\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}} mo)
+char $\ast$ \mbox{\hyperlink{menuoption_8h_a660c122e3027f2ea74748cbe4479de7c}{moption\+\_\+handle}} (\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}} mo)
+\item 
+void \mbox{\hyperlink{menuoption_8h_a215b9f209465187d24b52152f8b781d0}{moption\+\_\+display}} (\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}} $\ast$opt)
 \end{DoxyCompactItemize}
 
 
@@ -24,10 +26,6 @@ int \mbox{\hyperlink{menuoption_8h_a6f7571f6077ddc1c6fe33f14de4bbf22}{moption\+\
 \begin{DoxyDate}{Date}
 2022-\/11-\/16 23\+:05\+:32 PM +0800 
 \end{DoxyDate}
-
-
-Definition in file \mbox{\hyperlink{menuoption_8h_source}{menuoption.\+h}}.
-
 
 
 \doxysubsection{Typedef Documentation}
@@ -48,21 +46,68 @@ Menu\+Option defines available options in the client menu
 
 Menu\+Option defines available options in the client menu 
 
-Definition at line \mbox{\hyperlink{menuoption_8h_source_l00011}{11}} of file \mbox{\hyperlink{menuoption_8h_source}{menuoption.\+h}}.
+Definition at line 11 of file menuoption.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00011 \{ PLANT\_TREE = 1, QUERY\_TREE, UPDATE\_TREE \} \mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{MenuOption}};}
+\DoxyCodeLine{11 \{ PLANT\_TREE = 1, QUERY\_TREE, UPDATE\_TREE \} \mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{MenuOption}};}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{menuoption_8h_a6f7571f6077ddc1c6fe33f14de4bbf22}\label{menuoption_8h_a6f7571f6077ddc1c6fe33f14de4bbf22}} 
+\mbox{\Hypertarget{menuoption_8h_a215b9f209465187d24b52152f8b781d0}\label{menuoption_8h_a215b9f209465187d24b52152f8b781d0}} 
+\index{menuoption.h@{menuoption.h}!moption\_display@{moption\_display}}
+\index{moption\_display@{moption\_display}!menuoption.h@{menuoption.h}}
+\doxysubsubsection{\texorpdfstring{moption\_display()}{moption\_display()}}
+{\footnotesize\ttfamily void moption\+\_\+display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}} $\ast$}]{opt }\end{DoxyParamCaption})}
+
+Display menu options
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em opt} & A Menu\+Option got from user\textquotesingle{}s input \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file menuoption.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25   printf(\textcolor{stringliteral}{"{}  \_\_\_\_\_\_\_\_                               .\_\_                       .\_\_\_ \(\backslash\)n"{}});}
+\DoxyCodeLine{26   printf(\textcolor{stringliteral}{"{} /  \_\_\_\_\_/\_\_\_\_\_\_\_   \_\_\_\_   \_\_\_\_    \_\_\_\_  |  |  \_\_\_\_\_     \_\_\_\_    \_\_| \_/ \(\backslash\)n"{}});}
+\DoxyCodeLine{27   printf(\textcolor{stringliteral}{"{}/   \(\backslash\)\(\backslash\)  \_\_\_\(\backslash\)\(\backslash\)\_  \_\_ \(\backslash\)\(\backslash\)\_/ \_\_ \(\backslash\)\(\backslash\)\_/ \_\_ \(\backslash\)\(\backslash\)  /    \(\backslash\)\(\backslash\) |  |  \(\backslash\)\(\backslash\)\_\_  \(\backslash\)\(\backslash\)   /    \(\backslash\)\(\backslash\)  / \_\_ |  \(\backslash\)n"{}});}
+\DoxyCodeLine{28   printf(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)    \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\)|  | \(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)  \_\_\_/\(\backslash\)\(\backslash\)  \_\_\_/ |   |  \(\backslash\)\(\backslash\)|  |\_\_ / \_\_ \(\backslash\)\(\backslash\)\_|   |  \(\backslash\)\(\backslash\)/ /\_/ |  \(\backslash\)n"{}});}
+\DoxyCodeLine{29   printf(\textcolor{stringliteral}{"{} \(\backslash\)\(\backslash\)\_\_\_\_\_\_  /|\_\_|    \(\backslash\)\(\backslash\)\_\_\_  >\(\backslash\)\(\backslash\)\_\_\_  >|\_\_\_|  /|\_\_\_\_/(\_\_\_\_  /|\_\_\_|  /\(\backslash\)\(\backslash\)\_\_\_\_ |  \(\backslash\)n"{}});}
+\DoxyCodeLine{30   printf(\textcolor{stringliteral}{"{}        \(\backslash\)\(\backslash\)/             \(\backslash\)\(\backslash\)/     \(\backslash\)\(\backslash\)/      \(\backslash\)\(\backslash\)/            \(\backslash\)\(\backslash\)/      \(\backslash\)\(\backslash\)/      \(\backslash\)\(\backslash\)/  \(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   printf(\textcolor{stringliteral}{"{}Welcome to greenland, a place to plant tree!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{33   printf(\textcolor{stringliteral}{"{}We don't have any affiliation to the Greenland government, but if \(\backslash\)n"{}}}
+\DoxyCodeLine{34          \textcolor{stringliteral}{"{}you can plant a tree there, we are more than welcome! :)\(\backslash\)n"{}});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   printf(\textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{}});}
+\DoxyCodeLine{37   printf(\textcolor{stringliteral}{"{}\#                              \#\(\backslash\)n"{}});}
+\DoxyCodeLine{38   printf(\textcolor{stringliteral}{"{}\#            MENU              \#\(\backslash\)n"{}});}
+\DoxyCodeLine{39   printf(\textcolor{stringliteral}{"{}\#                              \#\(\backslash\)n"{}});}
+\DoxyCodeLine{40   printf(\textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{41   printf(\textcolor{stringliteral}{"{}\(\backslash\)t1. To plant a tree\(\backslash\)n"{}});}
+\DoxyCodeLine{42   printf(\textcolor{stringliteral}{"{}\(\backslash\)t2. To query a tree\(\backslash\)n"{}});}
+\DoxyCodeLine{43   printf(\textcolor{stringliteral}{"{}\(\backslash\)t3. To update a tree's status\(\backslash\)n"{}});}
+\DoxyCodeLine{44   printf(\textcolor{stringliteral}{"{}\(\backslash\)t4. Exit\(\backslash\)n"{}});}
+\DoxyCodeLine{45   printf(\textcolor{stringliteral}{"{}(Choose a service needed according to the number)\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{46   printf(\textcolor{stringliteral}{"{}Option: "{}});}
+\DoxyCodeLine{47   scanf(\textcolor{stringliteral}{"{}\%d"{}}, (\textcolor{keywordtype}{int} *)opt);}
+\DoxyCodeLine{48   system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{menuoption_8h_a660c122e3027f2ea74748cbe4479de7c}\label{menuoption_8h_a660c122e3027f2ea74748cbe4479de7c}} 
 \index{menuoption.h@{menuoption.h}!moption\_handle@{moption\_handle}}
 \index{moption\_handle@{moption\_handle}!menuoption.h@{menuoption.h}}
 \doxysubsubsection{\texorpdfstring{moption\_handle()}{moption\_handle()}}
-{\footnotesize\ttfamily int moption\+\_\+handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}}}]{mo }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char$\ast$ moption\+\_\+handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menuoption_8h_a5be5e47a3042bc91460d05e47f32120d}{Menu\+Option}}}]{mo }\end{DoxyParamCaption})}
 
 Handles menu option
 
@@ -76,21 +121,25 @@ Handles menu option
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{menuoption_8c_source_l00004}{4}} of file \mbox{\hyperlink{menuoption_8c_source}{menuoption.\+c}}.
+Definition at line 5 of file menuoption.\+c.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00005 \{}
-\DoxyCodeLine{00006   \textcolor{keywordflow}{switch} (mo) \{}
-\DoxyCodeLine{00007     \textcolor{keywordflow}{case} PLANT\_TREE:}
-\DoxyCodeLine{00008     \textcolor{keywordflow}{case} QUERY\_TREE:}
-\DoxyCodeLine{00009     \textcolor{keywordflow}{case} UPDATE\_TREE:}
-\DoxyCodeLine{00010       printf(\textcolor{stringliteral}{"{}Option \%d soon to be supported\(\backslash\)n"{}}, mo);}
-\DoxyCodeLine{00011       \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{00012 }
-\DoxyCodeLine{00013     \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00014       \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{00015   \}}
-\DoxyCodeLine{00016 \}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7   \textcolor{keywordtype}{char} *msg = malloc(1024);}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9   \textcolor{keywordflow}{switch} (mo)}
+\DoxyCodeLine{10   \{}
+\DoxyCodeLine{11   \textcolor{keywordflow}{case} PLANT\_TREE:}
+\DoxyCodeLine{12   \textcolor{keywordflow}{case} QUERY\_TREE:}
+\DoxyCodeLine{13   \textcolor{keywordflow}{case} UPDATE\_TREE:}
+\DoxyCodeLine{14     sprintf(msg, \textcolor{stringliteral}{"{}Option \%d soon to be supported\(\backslash\)n"{}}, mo);}
+\DoxyCodeLine{15     \textcolor{keywordflow}{return} msg;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{18     sprintf(msg, \textcolor{stringliteral}{"{}Option \%d not supported\(\backslash\)n"{}}, mo);}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} msg;}
+\DoxyCodeLine{20   \}}
+\DoxyCodeLine{21 \}}
 
 \end{DoxyCode}

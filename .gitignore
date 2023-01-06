@@ -35,7 +35,7 @@
 *.i*86
 *.x86_64
 *.hex
-greenland
+greenland*
 tests
 
 # Debug files
@@ -55,3 +55,7 @@ dkms.conf
 
 # Formatting result
 *.orig
+
+# (Note) Desmond: Temporarily ignore documentation changes
+doc/
+.vscode/settings.json
